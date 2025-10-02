@@ -4,7 +4,7 @@ This repository collects internships from multiple sources, normalizes the data 
 
 ## Current project state (what this repo actually contains)
 
-- Orchestration: `orchestrator.py` — runs scrapers (currently uses `JobSpy/main.py`), merges results, deduplicates, and writes `data/internships.csv` and a summary file.
+- Orchestration: `orchestrator.py` — runs scrapers (currently uses main.py), merges results, deduplicates, and writes `data/internships.csv` and a summary file.
 - Multi-source scraping: `JobSpy/` (packaged local copy) and an included Internshala scraper in `Internshala-Web-Scraper-Internshala.com/` (these may be present as embedded repos/submodules).
 - Chatbot backend: `chatbot/` — rule-based `InternshipBot`, CLI (`chatbot/cli.py`), AI wrapper `AIEnhancedInternshipBot` with safe timeouts.
 - Data model: `models/internship.py` — unified dataclass schema + deduplication helper.
@@ -15,7 +15,6 @@ This repository collects internships from multiple sources, normalizes the data 
 
 ```
 placement_portal/
-├── JobSpy/                             # JobSpy package (local copy)
 ├── Internshala-Web-Scraper-Internshala.com/  # Original internshala script (embedded)
 ├── chatbot/                             # Chatbot implementation and CLI
 ├── models/                              # Data models (Internship dataclass)
@@ -39,17 +38,10 @@ source venv/bin/activate
 
 ```bash
 pip install -r requirements.txt
-# optional: for .env loading and Playwright
-pip install python-dotenv
-pip install playwright
-playwright install
 ```
 
 3. Put your Gemini key into `.env` (optional):
 
-```bash
-echo "GEMINI_API_KEY=your_api_key_here" >> .env
-```
 
 ## 🚀 Quick Start — run the full flow
 
